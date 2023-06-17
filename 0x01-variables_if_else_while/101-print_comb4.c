@@ -11,6 +11,7 @@
 int main(void)
 {
 	int n, m, l;	/*set three variables to represent the three numbers*/
+	int last_n = 55;	/*The ASCII value for 7 which is the last n value*/
 
 	for (n = 48; n <= 57; n++)
 	{
@@ -21,8 +22,12 @@ int main(void)
 				putchar(n);
 				putchar(m);
 				putchar(l);
-				putchar(',');
-				putchar(' ');
+
+				if (n != last_n || m != 56 || l != 57)
+				{
+					putchar(',');
+					putchar(' ');
+				}
 			}
 		}
 	}
