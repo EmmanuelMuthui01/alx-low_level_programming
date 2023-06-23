@@ -4,26 +4,39 @@
 /**
  * main - Entry point
  *
- * Description: Write a program that prints FizzBuzz
+ * Description: Write a program that prints FizzBuzz.
+ * It prints the number 1-100. But for multiples of 3
+ * Fizz is printed instead of number. For multiples of 5
+ * Buzz is printed. For multiples of both three and five,
+ * FizzBuzz is printed.
  *
- * Return: 0 (success)
+ * Return: Always 0 (success)
  */
 
 int main(void)
 {
-	int i;
+	int num;
 
-	for (i = 1; i <= 100; i++)
+	for (num = 1; num <= 100; num++)
 	{
-		if (i % 3 == 0)
-			printf("Fizz ");
-		else if (i % 5 == 0)
-			printf("Buzz ");
-		else if (i % 15 == 0)
-			printf("FizzBuzz ");
+		if ((num % 3) == 0 && (num & 5) == 0)
+			printf("FizzBuzz");
+
+		else if ((num % 3) == 0)
+			printf("Fizz");
+
+		else if ((num % 5) == 0)
+			printf("Buzz");
+
 		else
-			printf("%d ", i);
+			printf("%d", num);
+
+		if (num == 100)
+			continue;
+
+		printf(" ");
 	}
+
 	printf("\n");
 
 	return (0);
