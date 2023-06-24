@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdio.h>
+#include <math.h>
 
 /**
  * main - Entry point
@@ -12,23 +13,27 @@
 
 int main(void)
 {
-	long prime = 612852475143, div;
+	long int primeNum = 612852475143;
+	int i, max = -1;
 
-	while (div < (prime / 2))
+	while (primeNum % 2 == 0)
 	{
-		if (prime % 2 == 0)
+		max = 2;
+		primeNum = primeNum / 2;
+	}
+	
+	for (i = 3; i <= sqrt(primeNum); i = i + 2)
+	{
+		while (primeNum % i == 0)
 		{
-			prime = prime / 2;
-			continue;
-		}
-
-		for (div = 3; div < (prime / 2); div = div + 2)
-		{
-			if (prime % 2 == 0)
-				prime = prime / div;
+			max = i;
+			primeNum = primeNum / i;
 		}
 	}
-	printf("%ld\n", prime);
+	if (primeNum > 2)
+	{
+		max = primeNum;
+	}
 
-	return (0);
+	return (max);
 }
