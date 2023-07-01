@@ -8,13 +8,15 @@
 
 int main(void)
 {
-	int i, sum = 0;
+	int i;
+	int sum = 0;
+	int limit = 1024;
 
-	for (i = 0; i < 1024; i++)
+	for (i = 0; i < limit; i++)
 	{
-		if ((i % 5 == 0) || (i % 3 == 0))
+		if (i % 3 == 0 || i % 5 == 0)
 			sum += i;
 	}
-	printf("%d", sum);
+	printf("%d\n", sum);
 	return (0);
 }
