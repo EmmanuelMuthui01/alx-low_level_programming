@@ -10,8 +10,8 @@
 int main(void)
 {
 	int limit = 4000000;
-	unsigned long long first = 1, second = 2;
-	unsigned long long sum = 0;
+	long int first = 1, second = 2;
+	long int sum = 0;
 
 	while (second <= limit)
 	{
@@ -20,11 +20,12 @@ int main(void)
 			sum = sum + second;
 		}
 
-		unsigned long long next = first + second;
+		long int next = first + second;
 
 		first = second;
 		second = next;
 	}
-	printf("%llu\n", sum);
+	printf("%ld\n", sum);
+
 	return (0);
 }
