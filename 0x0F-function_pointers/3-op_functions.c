@@ -1,4 +1,10 @@
-#include "3-calc.h"
+#include "3-calc.h"i
+
+int op_add(int a, int b);
+int op_sub(int a, int b);
+int op_mul(int a, int b);
+int op_div(int a, int b);
+int op_mod(int a, int b);
 
 /**
  * op_add - Function that adds two integers 'a' and 'b'.
@@ -58,7 +64,7 @@ int op_div(int a, int b)
 }
 
 /**
- * op_mod: Function returns the remainder of division of 'a' by 'b'.
+ * op_mod - Function returns the remainder of division of 'a' by 'b'.
  * @a: The first integer
  * @b: The second integer
  *
