@@ -2,7 +2,7 @@
 #include <stdarg.h>
 
 /**
- * print_numbers - prints strings
+ * print_numbers - prints numbers
  * @separator: Separates numbers
  * @n: Number of numbers/inputs
  *
