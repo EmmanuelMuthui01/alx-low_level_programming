@@ -2,7 +2,7 @@
 
 /**
  * _memcpy - a function that copies memory area
- * @dest: The pointer representing the destination memory area of copied data
+ * @dest: The destination memory area of copied data
  * @src: The source memory area containing data to be copied
  * @n: The number of bytes to copy
  *
