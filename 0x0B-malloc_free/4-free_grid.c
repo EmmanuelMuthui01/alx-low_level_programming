@@ -13,17 +13,17 @@
 
 void free_grid(int **grid, int height)
 {
-	int i;
+	int index;
 
 	if (grid == NULL || height <= 0)
 	{
-		return; /*Return NULL if grid is NULL || height = 0 or -ve*/
+		return; /*Return if grid is NULL || height <= 0 or -ve*/
 	}
 
 	/*Free the memory for each row*/
-	for (i = 0; i < height; i++)
+	for (index = 0; index < height; index++)
 	{
-		free(grid[i]);
+		free(grid[index]);
 	}
 
 	/*Free the memory for the array of integer pointers (grid)*/
