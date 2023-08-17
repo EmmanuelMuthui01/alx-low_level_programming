@@ -10,7 +10,7 @@
 
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
-	va_list paramN;
+	va_list my_list;
 	unsigned int i, num;
 
 	if (separator == NULL)
@@ -18,11 +18,11 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 		return;
 	}
 
-	va_start(paramN, n);
+	va_start(my_list, n);
 
 	for (i = 0; i < n; i++)
 	{
-		num = va_arg(paramN, unsigned int);
+		num = va_arg(my_list, unsigned int);
 		printf("%d", num);
 
 		if (i < n - 1) /*Check if not the last number*/
@@ -30,6 +30,6 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 			printf("%s", separator);
 		}
 	}
-	va_end(paramN);
 	printf("\n");
+	va_end(my_list);
 }
