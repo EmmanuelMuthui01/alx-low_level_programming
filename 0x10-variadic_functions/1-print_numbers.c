@@ -25,7 +25,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 		num = va_arg(my_list, unsigned int);
 		printf("%d", num);
 
-		if (i < n - 1) /*Check if not the last number*/
+		if (i < n - 1 && separator != NULL) /*Check if not the last number*/
 		{
 			printf("%s", separator);
 		}
