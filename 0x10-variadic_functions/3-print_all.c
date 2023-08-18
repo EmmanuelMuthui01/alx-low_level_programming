@@ -9,43 +9,44 @@
 
 void print_all(const char * const format, ...)
 {
-	int i = 0;
-	char *str, *separator = "";
+	unsigned int i = 0;
+	char *str;
+	char ch;
+
 	va_list my_list;
 
 	va_start(my_list, format);
 
-	if (format)
+	while (format && format[i])
 	{
-		while (format[i])
+		ch = format[i];
+		switch (ch)
 		{
-			switch (format[i])
-			{
-				case 'c':
-				printf("%s%c", separator, va_arg(my_list, int));
+			case 'c':
+				printf("%c", va_arg(my_list, int));
 				break;
-
-				case 'i':
-				printf("%s%d", separator, va_arg(my_list, int));
+			case 'i':
+				printf("%d", va_arg(my_list, int));
 				break;
-
-				case 'f':
-				printf("%s%f", separator, va_arg(my_list, double));
+			case 'f':
+				printf("%f", va_arg(my_list, double));
 				break;
-
-				case 's':
+			case 's':
 				str = va_arg(my_list, char *);
 				if (str == NULL)
-					str = "(nil)";
-				printf("%s%s", separator, str);
+				{
+					printf("(nil)");
+					break;
+				}
+				printf("%s", str);
 				break;
-				default:
+			default:
 				i++;
 				continue;
-			}
-			separator = ",";
-			i++;
 		}
+		if (format[i + 1])
+			printf(", ");
+		i++;
 	}
 	printf("\n");
 	va_end(my_list);
