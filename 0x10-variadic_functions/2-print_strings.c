@@ -11,7 +11,7 @@
 void print_strings(const char *separator, const unsigned int n, ...)
 {
 	va_list my_list;
-	unsigned int i	;
+	unsigned int i;
 	char *str;
 
 	va_start(my_list, n);
