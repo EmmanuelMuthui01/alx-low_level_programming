@@ -14,39 +14,34 @@
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
 	listint_t *new_node; /*Declare a pointer for new node*/
-	listint_t *current_node = *head; /*Declare a pointer for the current node initially set to the head*/
-	listint_t *prev_node = NULL; /*Declare a pointer for the previous node, set to NULL (no prev node)*/
-	unsigned int count = 0; /*Initialize a count variable to keep track of the node position*/
+	listint_t *current_node = *head; /*Declare ptr for curr node set it to head*/
+	listint_t *prev_node = NULL; /*Declare a ptr for prev node set to NULL*/
+	unsigned int count = 0; /*Initialize count var; keep track of node position*/
 
-	new_node = malloc(sizeof(listint_t)); /*Allocate memory for the new node position*/
-	if (head == NULL) /*Check if head pointer is NULL, and if so, return NULL (invalid input)*/
-	{
+	new_node = malloc(sizeof(listint_t)); /*Allocate mem for new node position*/
+	if (head == NULL) /*If head ptr is NULL,if so return NULL(invalid input)*/
 		return (NULL);
-	}
-	
+
 	new_node = malloc(sizeof(listint_t)); /*Allocate memory for the new node*/
 	if (new_node == NULL)
-	{
 		return (NULL); /*Check if mem allocation failed, and if so return NULL*/
-	}
 
 	new_node->n = n; /*Assign the value n to the data field of the new node*/
-	new_node->next = NULL; /*Set the next pointer of new node to NULL (initially not connected to the node*/
+	new_node->next = NULL; /*Set next ptr of new node to NULL*/
+				/*(initially not connected to the node)*/
 
 	if (idx == 0)
 	{
-		new_node->next = *head; /*If idx is 0, set the new node's next pointer to current head*/
+		new_node->next = *head; /*set the new node's next pointer to current head*/
 		*head = new_node; /*Update the head pointer to point to the new node*/
 		return (new_node); /*Return the address of the new node*/
 	}
-
 	while (current_node != NULL && count < idx)
 	{
-		prev_node = current_node; /*Move the previous node pointer to the current node*/
-		current_node = current_node->next; /*Move the current node pointer to the next node*/
+		prev_node = current_node; /*Move previous node pointer to current node*/
+		current_node = current_node->next; /*Move current node pointer to next node*/
 		count++; /*Increment the count to track the node position*/
 	}
-
 	if (count == idx)
 	{
 		prev_node->next = new_node; /*Connect the previous node to the new node*/
