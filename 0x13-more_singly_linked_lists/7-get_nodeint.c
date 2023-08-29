@@ -11,7 +11,7 @@
 
 listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 {
-	unsigned int count = 0; /*Initialize counter to track current node's position*/
+	unsigned int count = 0; /*Initialize counter to track current node's postn*/
 	listint_t *current_node = head; /*Initialize a pointer to traverse the list*/
 
 	while (current_node != NULL)
