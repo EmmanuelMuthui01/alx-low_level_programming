@@ -13,15 +13,19 @@ listint_t *find_listint_loop(listint_t *head)
 	listint_t *slow, *fast;
 
 	if (head == NULL || head->next == NULL)
+	{
 		return (NULL);
+	}
 
 	slow = head->next;
 	fast = (head->next)->next;
 
-	while (fast != NULL)
+	while (fast && fast->next)
 	{
 		if (slow == fast)
 		{
+			/*Loop detected*/
+
 			slow = fast;
 
 			while (slow != fast)
@@ -30,12 +34,12 @@ listint_t *find_listint_loop(listint_t *head)
 				fast = fast->next;
 			}
 
-			return (slow);
+			return (slow); /*or fast, they both point to the start of loop*/
 		}
 
 		slow = slow->next;
 		fast = (fast->next)->next;
 	}
 
-	return (NULL);
+	return (NULL); /*No loop found*/
 }
