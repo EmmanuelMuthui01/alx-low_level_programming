@@ -22,6 +22,9 @@ listint_t *find_listint_loop(listint_t *head)
 
 	while (fast && fast->next)
 	{
+		slow = slow->next;
+		fast = (fast->next)->next;
+
 		if (slow == fast)
 		{
 			/*Loop detected*/
@@ -36,9 +39,6 @@ listint_t *find_listint_loop(listint_t *head)
 
 			return (slow); /*or fast, they both point to the start of loop*/
 		}
-
-		slow = slow->next;
-		fast = (fast->next)->next;
 	}
 
 	return (NULL); /*No loop found*/
