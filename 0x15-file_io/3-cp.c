@@ -2,29 +2,6 @@
 #include <errno.h>
 
 void file_error(int file_from, int file_to, char *argv[]);
-char *create_buffer(char *file);
-
-/**
- * create_buffer - Allocates 1024 bytes for a buffer
- * @file: The name of the file whose chars are stored by buffer
- *
- * Return: A pointer to the newly-allocated buffer.
- */
-
-char *create_buffer(char *file)
-{
-	char *buffer;
-
-	buffer = malloc(sizeof(char) * 1024);
-	if (buffer == NULL)
-	{
-		dprintf(STDERR_FILENO,
-				"Error: Can't write to %s\n", file);
-		exit(99);
-	}
-	return (buffer);
-}
-
 
 /**
  * error_file - The function checks if files can be opened
